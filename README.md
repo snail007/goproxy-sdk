@@ -1,5 +1,8 @@
 
 # Proxy SDK usage instructions  
+[![stable](https://img.shields.io/badge/stable-stable-green.svg)](https://github.com/snail007/goproxy-sdk/) [![license](https://img.shields.io/github/license/snail007/goproxy-sdk.svg?style=plastic)]() [![download_count](https://img.shields.io/github/downloads/snail007/goproxy-sdk/total.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases) [![download](https://img.shields.io/github/release/snail007/goproxy-sdk.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases)  
+  
+[Download](https://github.com/snail007/goproxy-sdk/releases)  
 
 The following platforms are supported:
 - Android, `.arr` library
