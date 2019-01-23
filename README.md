@@ -1,72 +1,71 @@
-[![stable](https://img.shields.io/badge/stable-stable-green.svg)](https://github.com/snail007/goproxy-sdk/) [![license](https://img.shields.io/github/license/snail007/goproxy-sdk.svg?style=plastic)]() [![download_count](https://img.shields.io/github/downloads/snail007/goproxy-sdk/total.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases) [![download](https://img.shields.io/github/release/snail007/goproxy-sdk.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases)  
 
-# Proxy SDK 使用说明  
+# Proxy SDK usage instructions  
 
-支持以下平台:  
-- Android,`.arr`库
-- IOS,`.framework`库
-- Windows,`.dll`库
-- Linux,`.so`库
-- MacOS,`.dylib`库
+The following platforms are supported:
+- Android, `.arr` library
+- IOS, `.framework` library
+- Windows, `.dll` library
+- Linux, `.so` library
+- MacOS, `.dylib` library
 
-proxy使用gombile实现了一份go代码编译为android和ios平台下面可以直接调用的sdk类库, 
-另外还为linux和windows,MacOS提供sdk支持，基于这些类库,APP开发者可以轻松的开发出各种形式的代理工具。    
+proxy uses gombile to compile a copy of go code into an sdk library that can be called directly from the android and ios platforms, 
+It also provides sdk support for linux and windows, MacOS,based on these libraries, APP developers can easily develop various forms of proxy tools.    
 
-# 下面分平台介绍SDK的用法  
+# The following sub-platform describes the use of the SDK
 
 ## Android SDK
   
-在Android系统提供的sdk形式是一个后缀为.aar的类库文件,开发的时候只需要把arr类库文件引入android项目即可.  
+The sdk form provided in the Android system is a suffix.aar class library files, development time only need to ARR class library files into the android project can be. 
 
-### Android-SDK使用实例
+### Android-SDK usage examples
 
-#### 1.导入包
+#### 1. Importing packages
 
 ```java
 import snail007.proxy.Porxy
 ```
 
-#### 2.启动一个服务
+#### 2. Start a service
 
 ```java
-String serviceID="http01";//这里serviceID是自定义的唯一标识字符串,保证每个启动的服务不一样即可
+String serviceID="http01";// Here serviceID is a custom unique identifier string, ensure that each start of the service is not the same
 String serviceArgs="http -p :8080";
 String err=Proxy.start(serviceID,serviceArgs);
 if (!err.isEmpty()){
-    //启动失败
+    // Failed to start
     System.out.println("start fail,error:"+err);
 }else{
-    //启动成功
+    // Successful launch
 }
 ```
 
-#### 3.停止一个服务
+#### 3. Stop service
 
 ```java
 String serviceID="http01";
 Proxy.stop(serviceID);
-//停止完毕
+// Stop over.
 
 ```
 
 ## IOS SDK
-  
-在IOS系统提供的sdk形式是一个后缀为.framework的类库文件夹,开发的时候只需要把类库文件引入项目,然后调用方法即可.  
+   
+The sdk form provided in IOS is a suffix.framework Class Library folder, the development of the class library files only need to be introduced into the project, and then call the method.  
 
-### IOS-SDK使用实例
+### IOS-SDK usage examples
 
-#### 导入包
+#### Importing packages
 
 ```objc
 #import <Proxy/Proxy.objc.h>
 ```
 
-#### 2.启动一个服务
+#### 2. Start a service
 
 ```objc
 -(IBAction)doStart:(id)sender
 {
-	//这里serviceID是自定义的唯一标识字符串,保证每个启动的服务不一样
+	// Here serviceID is a custom unique identifier string, guaranteed to be different for each started service
 	NSString *serviceID = @"http01";
     NSString *serviceArgs = @"http -p :8080";
     NSString *error = ProxyStart(serviceID,serviceArgs);
@@ -75,30 +74,31 @@ Proxy.stop(serviceID);
     {
         NSLog(@"start error %@",error);
     }else{
-        NSLog(@"启动成功");
+        NSLog(@"Successful launch");
     }
 }
 ```
 
-#### 3.停止一个服务
+#### 3. Stop service
 
 ```objc
 -(IBAction)doStop:(id)sender
 {
     NSString *serviceID = @"http01";
     ProxyStop(serviceID);
-    //停止完毕
+    // Stop over.
 }
 ```
 
 
 ## Windows SDK
-    
-在Windows系统提供的sdk形式是一个后缀为.dll的类库文件,开发的时候只需要把dll类库文件加载,然后调用方法即可.  
+ 
+The sdk form provided in the Windows system is a suffix.when developing,you only need to load the dll class library file, and then call the method. 
 
-### Windows-SDK使用实例  
-C++示例，不需要包含头文件，只需要加载proxy-sdk.dll即可，ieshims.dll需要和proxy-sdk.dll在一起。  
-作者：[yjbdsky](https://github.com/yjbdsky)     
+### Windows-SDK usage instance
+
+C++examples, do not need to include header files, only need to load proxy-sdk.dll can, ieshims.dll needed and proxy-sdk.dll together.  
+Author: [yjbdsky](https://github.com/yjbdsky)     
 
 ```cpp
 #include <stdio.h>
@@ -145,13 +145,13 @@ char * Stop(char * p)
 
 int main()
 {
-	//这里p0是自定义的唯一标识字符串,保证每个启动的服务不一样
+	// Here p0 is a custom unique identifier string, guaranteed to be different for each started service
 	char *p0 = "http01";
 	char *p1 = "http -t tcp -p :38080";
 	printf("This is demo application.\n");
-	//启动服务,返回空字符串说明启动成功;返回非空字符串说明启动失败,返回的字符串是错误原因
+	// Start the service, returns an empty string description starts successfully;returns a non-empty string description fails to start, the returned string is the cause of the error
 	printf("start result %s\n", Start(p0,p1));
-	//停止服务,没有返回值
+	// Stop service, no return value
 	Stop(p0);
 	return 0;
 }
@@ -162,14 +162,14 @@ int main()
 #endif
 ```
 
-C++示例2，请移步：[GoProxyForC](https://github.com/SuperPowerLF2/GoProxyForC)   
+C++ Example 2, move step：[GoProxyForC](https://github.com/SuperPowerLF2/GoProxyForC)   
 
 ## Linux SDK
- 
-在Linux系统提供的sdk形式是一个后缀为.so的类库文件,开发的时候只需要把so类库加载,调用方法即可.  
+  
+The sdk form provided in the Linux system is a suffix.so library files, development time only need to load the so library, you can call the method.
 
-### Linux-SDK使用实例
-Linux下面使用的sdk是so文件即libproxy-sdk.so,下面写一个简单的C程序示例,调用so库里面的方法.  
+### Linux-SDK usage examples
+The SDK that is used below Linux is the so file i.e. libproxy-sdk. so,write a simple example of a C program that calls the method inside the so library. 
 
 `vi test-proxy.c`  
 
@@ -179,29 +179,29 @@ Linux下面使用的sdk是so文件即libproxy-sdk.so,下面写一个简单的C�
 
 int main() {
      printf("This is demo application.\n");
-	 //这里p0是自定义的唯一标识字符串,保证每个启动的服务不一样
+	 // Here p0 is a custom unique identifier string, guaranteed to be different for each started service
 	 char *p0 = "http01";
      char *p1 = "http -t tcp -p :38080";
-     //启动服务,返回空字符串说明启动成功;返回非空字符串说明启动失败,返回的字符串是错误原因
+     // Start the service, returns an empty string description starts successfully;returns a non-empty string description fails to start, the returned string is the cause of the error
      printf("start result %s\n",Start(p0,p1));
-     //停止服务,没有返回值
+     // Stop service, no return value
      Stop(p0);
      return 0;
 }
 ```
 
-#### 编译test-proxy.c ####  
+#### Compile test-proxy.c ####  
 `export LD_LIBRARY_PATH=./ && gcc -o test-proxy test-proxy.c libproxy-sdk.so`  
 
-#### 执行 ####  
+#### Execution ####  
 `./test-proxy`  
 
 ## MacOS SDK
 
-在MacOS系统提供的sdk形式是一个后缀为.dylib的类库文件,开发的时候只需要把so类库加载,调用方法即可.  
+The sdk form provided in the MacOS system is a suffix.dylib library files, development time only need to load so library, you can call the method.   
 
-### MacOS-SDK使用实例
-MacOS下面使用的sdk是dylib文件即libproxy-sdk.dylib,下面写一个简单的Obj-C程序示例,调用dylib库里面的方法.  
+### MacOS-SDK usage instance
+The sdk used below for MacOS is the dylib file i.e. libproxy-sdk.dylib, write a simple Obj-C program example, call dylib library inside the method.
 
 ```objc
 #import "libproxy-sdk.h"
@@ -224,8 +224,9 @@ MacOS下面使用的sdk是dylib文件即libproxy-sdk.dylib,下面写一个简单
 }
 ```
 
-### 关于服务  
-proxy的服务有11种,分别是:  
+### About the service
+
+There are 11 types of proxy services:  
 
 ```shell
 http  
@@ -240,9 +241,11 @@ tbridge
 tserver  
 tclient  
 ```
-服务启动时,如果存在正在运行的相同ID的服务,那么之前的服务会被停掉,后面启动的服务覆盖之前的服务.  
-所以要保证每次启动服务的时候,第一个ID参数唯一.  
-上面这些服务的具体使用方式和具体参数,可以参考[proxy手册](https://github.com/snail007/goproxy/blob/master/README_ZH.md)  
-sdk里面的服务不支持手册里面的：--daemon和--forever参数.  
+
+When the service starts,if there is a service running with the same ID, then the previous service will be stopped and the previous service will be overwritten later.  
+
+So make sure that the first ID parameter is unique every time you start the service.  
+
+The specific usage and parameters of these services can be found in [proxy manual](https://github.com/snail007/goproxy/blob/master/README.md) the SDK service does not support the manual inside: -- daemon and -- forever parameters.
 
 
