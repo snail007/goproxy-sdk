@@ -4,6 +4,8 @@
 
 [Download](https://github.com/snail007/goproxy-sdk/releases)  
 
+[Free vs Commercial](https://snail007.github.io/goproxy/free_vs_commercial/)
+
 The following platforms are supported:
 - Android, `.arr` library
 - IOS, `.framework` library
