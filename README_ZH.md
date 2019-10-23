@@ -35,7 +35,7 @@ import snail007.proxy.Porxy
 ```java
 String serviceID="http01";//这里serviceID是自定义的唯一标识字符串,保证每个启动的服务不一样即可
 String serviceArgs="http -p :8080";
-String err=Proxy.start(serviceID,serviceArgs);
+String err=Proxy.start(serviceID,serviceArgs,"");
 if (!err.isEmpty()){
     //启动失败
     System.out.println("start fail,error:"+err);
@@ -73,7 +73,7 @@ Proxy.stop(serviceID);
 	//这里serviceID是自定义的唯一标识字符串,保证每个启动的服务不一样
 	NSString *serviceID = @"http01";
     NSString *serviceArgs = @"http -p :8080";
-    NSString *error = ProxyStart(serviceID,serviceArgs);
+    NSString *error = ProxyStart(serviceID,serviceArgs,"");
     
     if (error != nil && error.length > 0)
     {
@@ -127,7 +127,7 @@ char * Start(char * p0,char * p1)
 		GOSTART gostart = *(GOSTART)(GetProcAddress(GODLL, "Start"));
 		if (gostart != NULL){
 			printf("%s:%s\n",p0, p1);
-			char *ret = gostart(p0,p1);
+			char *ret = gostart(p0,p1,"");
 			return ret;
 		}
 	}
@@ -187,7 +187,7 @@ int main() {
 	 char *p0 = "http01";
      char *p1 = "http -t tcp -p :38080";
      //启动服务,返回空字符串说明启动成功;返回非空字符串说明启动失败,返回的字符串是错误原因
-     printf("start result %s\n",Start(p0,p1));
+     printf("start result %s\n",Start(p0,p1,""));
      //停止服务,没有返回值
      Stop(p0);
      return 0;
@@ -211,7 +211,7 @@ MacOS下面使用的sdk是dylib文件即libproxy-sdk.dylib,下面写一个简单
 #import "libproxy-sdk.h"
 -(IBAction)doStart:(id)sender
 {
-    char *result =  Start("http01", "http -t tcp -p :38080");
+    char *result =  Start("http01", "http -t tcp -p :38080","");
     
     if (result)
     {
