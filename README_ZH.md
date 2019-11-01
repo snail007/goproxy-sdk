@@ -4,6 +4,8 @@
  
 [点击下载SDK](https://github.com/snail007/goproxy-sdk/releases)  
 
+[镜像下载](https://www.host900.com/snail007/goproxy-sdk)  
+
 [免费版VS商业版](https://snail007.github.io/goproxy/free_vs_commercial/)
 
 支持以下平台:  
