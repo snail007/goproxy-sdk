@@ -6,6 +6,8 @@
 
 [Download](https://github.com/snail007/goproxy-sdk/releases)  
 
+[镜像下载](https://www.host900.com/snail007/goproxy-sdk)  
+
 [Free version vs Commercial version](https://snail007.github.io/goproxy/free_vs_commercial/)
 
 The following platforms are supported:
