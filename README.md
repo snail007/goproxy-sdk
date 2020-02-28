@@ -1,6 +1,6 @@
 
 # Proxy SDK usage instructions  
-[![stable](https://img.shields.io/badge/stable-stable-green.svg)](https://github.com/snail007/goproxy-sdk/) [![download_count](https://img.shields.io/github/downloads/snail007/goproxy-sdk/total.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases) [![download](https://img.shields.io/github/release/snail007/goproxy-sdk.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases)  
+[![stable](https://img.shields.io/badge/stable-stable-green.svg)](http://mirrors.host900.com/snail007/goproxy-sdk/) [![download_count](https://img.shields.io/github/downloads/snail007/goproxy-sdk/total.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases) [![download](https://img.shields.io/github/release/snail007/goproxy-sdk.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases)  
 
 [中文说明](/README_ZH.md)
 
