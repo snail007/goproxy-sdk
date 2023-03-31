@@ -2,11 +2,9 @@
 # Proxy SDK 使用说明  
 [![stable](https://img.shields.io/badge/stable-stable-green.svg)](https://github.com/snail007/goproxy-sdk/) [![download_count](https://img.shields.io/github/downloads/snail007/goproxy-sdk/total.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases) [![download](https://img.shields.io/github/release/snail007/goproxy-sdk.svg?style=plastic)](https://github.com/snail007/goproxy-sdk/releases)  
  
-[点击下载SDK](https://github.com/snail007/goproxy-sdk/releases)  
-
-[镜像下载](https://www.host900.com/snail007/goproxy-sdk)  
-
-[免费版VS商业版](https://snail007.github.io/goproxy/free_vs_commercial/)
+ ## 提示： SDK只有商业版
+ 
+[点击下载SDK](https://github.com/snail007/goproxy-sdk-commercial/releases)  
 
 支持以下平台:  
 - Android,`.arr`库
